@@ -3,41 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Quote</title>
+    <title>Custom Startup Page</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
         }
         #quote {
             font-size: 2em;
-            font-weight: bold;
-            max-width: 80%;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .shortcut {
+            font-size: 1.2em;
+            margin: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .shortcut:hover {
+            background-color: #0056b3;
+        }
+        .shortcuts {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div id="quote"></div>
+    <div class="shortcuts">
+        <a class="shortcut" href="https://www.google.com" target="_blank">Google</a>
+        <a class="shortcut" href="https://www.youtube.com" target="_blank">YouTube</a>
+        <a class="shortcut" href="https://www.github.com" target="_blank">GitHub</a>
+        <!-- Add more shortcuts as you like -->
+    </div>
 
     <script>
-        const quotes = {
-            "2025-03-26": "The journey of a thousand miles begins with a single step.",
-            "2025-03-27": "Do what you can, with what you have, where you are.",
-            "2025-03-28": "The only limit to our realization of tomorrow is our doubts of today.",
-            "2025-03-29": "Believe you can and you’re halfway there."
-        };
+        const quotes = [
+            "The journey of a thousand miles begins with a single step.",
+            "Do what you can, with what you have, where you are.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "Believe you can and you’re halfway there."
+        ];
 
-        function showDailyQuote() {
-            const today = new Date().toISOString().split("T")[0]; 
-            document.getElementById("quote").textContent = quotes[today] || "Have a great day!";
-        }
-
-        showDailyQuote();
+        // Randomly display a quote
+        document.getElementById("quote").textContent = quotes[Math.floor(Math.random() * quotes.length)];
     </script>
 </body>
 </html>
