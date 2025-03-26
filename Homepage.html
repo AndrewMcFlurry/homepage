@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Quote</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        #quote {
+            font-size: 2em;
+            font-weight: bold;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div id="quote"></div>
+
+    <script>
+        const quotes = {
+            "2025-03-26": "The journey of a thousand miles begins with a single step.",
+            "2025-03-27": "Do what you can, with what you have, where you are.",
+            "2025-03-28": "The only limit to our realization of tomorrow is our doubts of today.",
+            "2025-03-29": "Believe you can and you’re halfway there."
+        };
+
+        function showDailyQuote() {
+            const today = new Date().toISOString().split("T")[0]; 
+            document.getElementById("quote").textContent = quotes[today] || "Have a great day!";
+        }
+
+        showDailyQuote();
+    </script>
+</body>
+</html>
